@@ -1,6 +1,6 @@
 import { Box, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import myImage from "../images/book.png";
 function Navbar() {
   return (
     <Box
@@ -14,12 +14,13 @@ function Navbar() {
       gap="20px"
     >
       <Image
-        boxSize="80px"
-        borderRadius="full"
-        // w="50px"
-        // h="50px"
-        objectFit="cover"
-        src="https://document-export.canva.com/zfUYU/DAFRX1zfUYU/5/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T070251Z&X-Amz-Expires=17981&X-Amz-Signature=9b562201abf2b509ec13dd4a39dd9149e6add5b51a340a2cbc23b2156702198b&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2012%3A02%3A32%20GMT"
+        boxSize="50px"
+        // borderRadius="full"
+        w="100px"
+        h="60px"
+        // src="https://document-export.canva.com/w_pN0/DAFRkmw_pN0/12/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221110%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221110T054142Z&X-Amz-Expires=53720&X-Amz-Signature=58c3e60e4c1119aaa47dd7f77378ba43f102db04f89785c86786c3efdd740427&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2010%20Nov%202022%2020%3A37%3A02%20GMT"
+        src="https://d2g9wbak88g7ch.cloudfront.net/staticimages/logo-new.png"
+        // src={myImage}
         alt="Hobbit hall"
         // mixBlendMode="multiply"
       />

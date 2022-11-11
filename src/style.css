@@ -1,27 +1,89 @@
 .grid {
+  width: 80%;
+  margin: auto;
+  margin-top: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: auto;
-  text-align: center;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  word-break: break-all;
-  width: 80%;
-  padding: 10px;
+  grid-template-rows: auto;
+  gap: 45px;
 }
 .grid div {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  align-items: center;
-  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 80%; */
+  padding: 15px 10px;
+  /* box-shadow: rgb(0 0 0 / 7%) 0px 1px 2px, rgb(0 0 0 / 7%) 0px 2px 4px,
+    rgb(0 0 0 / 7%) 0px 4px 8px, rgb(0 0 0 / 7%) 0px 8px 16px,
+    rgb(0 0 0 / 7%) 0px 16px 32px, rgb(0 0 0 / 7%) 0px 32px 64px;
+  transition-property: all;
+  transition-duration: 0.5s; */
 }
-img {
+.grid div:hover {
+  /* transform: scale(1.02);
+  box-shadow: rgb(0 0 0 / 56%) 0px 22px 70px 4px; */
+}
+.grid img {
+  height: 70%;
+  width: 80%;
   display: block;
   margin: auto;
-  width: 40%;
-  height: 20px;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+.grid img:hover {
+  transform: scale(1.02);
+  /* box-shadow: rgb(0 0 0 / 56%) 0px 22px 70px 4px; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+#app {
+  height: 100%;
+}
+/* html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+} */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
