@@ -2,6 +2,8 @@ import './App.css';
 // import CaptionCarousel from './components/CaptionCarousel';
 import Navbar from './components/Navbar';
 import AllRouter from './Routes/AllRouter';
+import Carousels from './components/Blog';
+
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <Navbar />
       <AllRouter />
       {/* <CaptionCarousel /> */}
+
 
     </div >
   );
