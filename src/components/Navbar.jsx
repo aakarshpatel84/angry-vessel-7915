@@ -1,6 +1,7 @@
 import { Box, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import myImage from "../images/book.png";
+import Search from "../Routes/Search";
 function Navbar() {
   return (
     <Box
@@ -24,6 +25,9 @@ function Navbar() {
         alt="Hobbit hall"
         // mixBlendMode="multiply"
       />
+      <Box>
+        <Search />
+      </Box>
       <Box
         paddingLeft="20px"
         display="flex"
@@ -35,6 +39,7 @@ function Navbar() {
         <Link to="/About">About</Link>
         <Link to="/Signin">Sign in</Link>
         <Link to="/Signup">Sign up</Link>
+        <Link to="/Cart">Cart</Link>
       </Box>
     </Box>
   );
