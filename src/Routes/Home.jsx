@@ -5,7 +5,7 @@ import { Button, Text, Image } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import "../style.css";
 import Cart from "../components/Cart";
-import { CartContext } from "../Context/CartContextProvider";
+import { CartContext } from "../Context/cartContextProvider";
 
 export default function Home() {
   const { Add, setCart } = useContext(CartContext);

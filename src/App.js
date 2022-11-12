@@ -7,7 +7,7 @@ import AllRouter from './Routes/AllRouter';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { useContext, useEffect } from 'react';
-import { CartContext } from './Context/CartContextProvider';
+import { CartContext } from "./Context/cartContextProvider";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

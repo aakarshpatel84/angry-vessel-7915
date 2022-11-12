@@ -1,7 +1,7 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Button, Image, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { CartContext } from "../Context/CartContextProvider";
+import { CartContext } from "../Context/cartContextProvider";
 
 function Cart() {
   const { addData, cart, Remove } = useContext(CartContext);
