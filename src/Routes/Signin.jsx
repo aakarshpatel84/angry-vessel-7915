@@ -11,9 +11,41 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 
 export default function Signin() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const logIn = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("user: ", user);
+        navigate("/");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log("errorCode: ", errorCode);
+        const errorMessage = error.message;
+        console.log("errorMessage: ", errorMessage);
+        alert("wrong credential");
+      });
+  };
   return (
     <Flex
       minH={"100vh"}
@@ -40,11 +72,15 @@ export default function Signin() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input value={email} onChange={handleEmail} type="email" />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input
+                value={password}
+                onChange={handlePassword}
+                type="password"
+              />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -61,6 +97,7 @@ export default function Signin() {
                 _hover={{
                   bg: "blue.500",
                 }}
+                onClick={logIn}
               >
                 Sign in
               </Button>

@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
+import CartContextProvider from './Context/cartContextProvider';
 import "swiper/css/bundle";
 import "./style.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,7 +13,10 @@ root.render(
   <ChakraProvider>
     <BrowserRouter>
 
-      <App />
+      <CartContextProvider>
+
+        <App />
+      </CartContextProvider>
 
     </BrowserRouter>
   </ChakraProvider>
