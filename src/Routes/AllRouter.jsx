@@ -8,7 +8,7 @@ import Signup from "./Signup";
 export default function AllRouter() {
   return (
     <Routes>
-      <Route path="/Home" element={<Home />}></Route>
+      <Route path="/" element={<Home />}></Route>
       <Route path="/About" element={<About />} />
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Signup" element={<Signup />} />
