@@ -6,7 +6,8 @@ export default function Search() {
     <div>
       <Input
         bgColor="white"
-        htmlSize={50}
+        color="black"
+        htmlSize={60}
         width="auto"
         placeholder="Search"
         text={<SearchIcon />}

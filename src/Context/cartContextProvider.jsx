@@ -3,19 +3,11 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 function CartContextProvider({ children }) {
-  // const [addData, setAddData] = useState([]);
-
-  // const addToCart = (data) => {
-  //   setAddData(data);
-  // };
   const [cart, setCart] = useState([]);
   const Add = (data) => {
-    // setCart([...cart, data]);
     const newData = [...cart, data];
     setCart(newData);
-    // console.log(data);
-    // <AddToCart data={cart} />;
-    // addToCart(data);
+
     localStorage.setItem("cart", JSON.stringify(newData));
   };
   const Remove = (index) => {

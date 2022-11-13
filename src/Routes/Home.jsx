@@ -1,11 +1,12 @@
 // import axios from "axios";
 // import { useEffect, useState } from "react";
-import Blog from "../components/Blog";
-import { Button, Text, Image } from "@chakra-ui/react";
+import Carousel from "../components/Carousel";
+import { Button, Text, Image, Box } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import "../style.css";
 import Cart from "../components/Cart";
 import { CartContext } from "../Context/cartContextProvider";
+import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 
 export default function Home() {
   const { Add, setCart } = useContext(CartContext);
@@ -29,6 +30,7 @@ export default function Home() {
   const pageChange = () => {
     setPage((page) => page + 1);
   };
+
   const pagePrev = () => {
     setPage((page) => page - 1);
   };
@@ -46,14 +48,16 @@ export default function Home() {
   return (
     <>
       <div className="cr">
-        <Blog />
+        <Carousel />
       </div>
       <div className="grid">
         {data.map((el, index) => (
           <div>
             <Image src={el.image} alt="" />
             <Text>{el.title}</Text>
-            <Text> {`Rs-${el.price}`}</Text>
+            <Box>
+              <Text color="red"> {`Rs ${el.price}`}</Text>
+            </Box>
             <Button
               bg="red.400"
               display="block"
@@ -69,10 +73,18 @@ export default function Home() {
         {/* <AddToCart/> */}
       </div>
       <div>
-        <Button m="10" color="red.400" onClick={pagePrev}>
+        <Button disabled={page === 1} m="5" color="red.400" onClick={pagePrev}>
+          {/* <ArrowLeftIcon /> */}
           Prev
         </Button>
-        <Button m="" color="red.400" onClick={pageChange}>
+        <Button color="red.400">{page}</Button>
+        <Button
+          disabled={page === 5}
+          m="5"
+          color="red.400"
+          onClick={pageChange}
+        >
+          {/* <ArrowRightIcon /> */}
           Next
         </Button>
       </div>

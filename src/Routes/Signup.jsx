@@ -12,8 +12,10 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  FormHelperText,
+  FormErrorMessage,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
@@ -23,11 +25,13 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
+  const isError = email === "";
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -41,6 +45,7 @@ export default function Signup() {
         // Signed in
         const user = userCredential.user;
         console.log("user: ", user);
+        navigate("/Signin");
         // ...
       })
       .catch((error) => {
@@ -84,9 +89,16 @@ export default function Signup() {
                 </FormControl>
               </Box>
             </HStack>
-            <FormControl id="email" isRequired>
+            <FormControl id="email" isInvalid={isError}>
               <FormLabel>Email address</FormLabel>
               <Input value={email} onChange={handleEmailChange} type="email" />
+              {!isError ? (
+                <FormHelperText color="green.700">
+                  Enter the email you'd like to receive the newsletter on.
+                </FormHelperText>
+              ) : (
+                <FormErrorMessage>Email is required.</FormErrorMessage>
+              )}
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>

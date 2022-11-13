@@ -1,11 +1,10 @@
 import { Box, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import myImage from "../images/book.png";
 import Search from "../Routes/Search";
 function Navbar() {
   return (
     <Box
-      bg="blue"
+      bg="darkblue"
       w="100%"
       p={4}
       color="white"
@@ -35,10 +34,10 @@ function Navbar() {
         pRight="20px"
         marginRight="50px"
       >
-        <Link to="/Home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/About">About</Link>
         <Link to="/Signin">Sign in</Link>
-        <Link to="/Signup">Sign up</Link>
+        {/* <Link to="/Signup">Sign up</Link> */}
         <Link to="/Cart">Cart</Link>
       </Box>
     </Box>
