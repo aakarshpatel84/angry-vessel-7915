@@ -4,29 +4,27 @@ import Carousel from "../components/Carousel";
 import { Button, Text, Image, Box } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import "../style.css";
-import Cart from "../components/Cart";
 import { CartContext } from "../Context/cartContextProvider";
-import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 
 export default function Home() {
-  const { Add, setCart } = useContext(CartContext);
-  const { addToCart } = useContext(CartContext);
+  const { Add } = useContext(CartContext);
   // const [data1, setData] = useState;
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const getData = async (page) => {
     let res = await fetch(
-      `http://localhost:2020/homepagedata?_page=${page}&_limit=9`
+      `https://database-json-server.vercel.app/homepagedata?_page=${page}&_limit=9`
+      // `http://localhost:2020/homepagedata?_page=${page}&_limit=9&&_q${query}`
     );
+
     let data = await res.json();
-    // console.log("data: ", data);
-    // data1(data);
     setData(data);
-    // console.log("data: ", data);
   };
+
   useEffect(() => {
     getData(page);
   }, [page]);
+
   const pageChange = () => {
     setPage((page) => page + 1);
   };
@@ -72,22 +70,33 @@ export default function Home() {
 
         {/* <AddToCart/> */}
       </div>
-      <div>
-        <Button disabled={page === 1} m="5" color="red.400" onClick={pagePrev}>
+      <Box mg="50">
+        <Button
+          disabled={page === 1}
+          m="5"
+          color="white"
+          bg="darkblue"
+          _hover="none  "
+          onClick={pagePrev}
+        >
           {/* <ArrowLeftIcon /> */}
           Prev
         </Button>
-        <Button color="red.400">{page}</Button>
+        <Button color="white" bg="darkblue" _hover="none">
+          {page}
+        </Button>
         <Button
           disabled={page === 5}
           m="5"
-          color="red.400"
+          color="white"
+          bg="darkblue"
+          _hover="none  "
           onClick={pageChange}
         >
           {/* <ArrowRightIcon /> */}
           Next
         </Button>
-      </div>
+      </Box>
     </>
   );
 }

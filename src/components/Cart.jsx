@@ -1,5 +1,5 @@
 import { DeleteIcon } from "@chakra-ui/icons";
-import { Button, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { CartContext } from "../Context/cartContextProvider";
 
@@ -15,24 +15,26 @@ function Cart() {
 
   return (
     <div>
-      <Text>{"Total  " + sumOfItem}</Text>
-      <h1>Cart</h1>
+      <Text bg="red.200">{"Total Price " + sumOfItem}</Text>
+      <h1>{/* <ImCart /> */}</h1>
       <div className="grid">
         {cart.map((el, index) => (
-          <div>
+          <Box display="none">
             <Image src={el.image} alt="" />
             <Text>{el.title}</Text>
             <Text> {`Rs-${el.price}`}</Text>
             <Button
-              bg="red.400"
+              bg="none"
+              _hover="none"
+              border="none"
               display="block"
               margin="auto"
               w="fit-content"
               onClick={() => Remove(index)}
             >
-              <DeleteIcon />
+              <DeleteIcon border="none" />
             </Button>
-          </div>
+          </Box>
         ))}
 
         {/* <AddToCart/> */}

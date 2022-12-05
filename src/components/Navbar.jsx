@@ -1,7 +1,8 @@
 import { Box, Image } from "@chakra-ui/react";
+import { BsFillHandbagFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Search from "../Routes/Search";
-function Navbar() {
+function Navbar({ getData }) {
   return (
     <Box
       bg="darkblue"
@@ -25,7 +26,7 @@ function Navbar() {
         // mixBlendMode="multiply"
       />
       <Box>
-        <Search />
+        <Search getData={getData} />
       </Box>
       <Box
         paddingLeft="20px"
@@ -38,7 +39,10 @@ function Navbar() {
         <Link to="/About">About</Link>
         <Link to="/Signin">Sign in</Link>
         {/* <Link to="/Signup">Sign up</Link> */}
-        <Link to="/Cart">Cart</Link>
+        <Link to="/Cart" style={{ marginTop: "3px" }}>
+          {/* Cart */}
+          <BsFillHandbagFill fontSize={19} />
+        </Link>
       </Box>
     </Box>
   );

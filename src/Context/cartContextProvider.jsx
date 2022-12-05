@@ -6,6 +6,8 @@ function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const Add = (data) => {
     const newData = [...cart, data];
+
+    console.log("newData: ", newData);
     setCart(newData);
 
     localStorage.setItem("cart", JSON.stringify(newData));

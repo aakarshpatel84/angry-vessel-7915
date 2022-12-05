@@ -1,7 +1,8 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import { Input, Button } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 
 export default function Search() {
+  const showBooks = (e) => {};
   return (
     <div>
       <Input
@@ -11,8 +12,7 @@ export default function Search() {
         width="auto"
         placeholder="Search"
         text={<SearchIcon />}
-
-        // onChange={searchBooks}
+        onChange={showBooks}
       />
     </div>
   );
